@@ -91,3 +91,14 @@ span:after {
   grid-template-columns: auto auto;
   flex-direction: row;
 }
+
+.swiper-container {
+  height: 500px;
+}
+.swiper-slide {
+  background: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}
