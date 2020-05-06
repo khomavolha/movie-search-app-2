@@ -1,0 +1,13 @@
+@import "~normalize.css";
+@import "roboto.css";
+
+body {
+  font-family: "Roboto", sans-serif;
+  width: 1080px;
+  margin: 0 auto;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
