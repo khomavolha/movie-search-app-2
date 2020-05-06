@@ -11,3 +11,83 @@ body {
   min-height: 100%;
 }
 
+.logo {
+  background-image: url("../assets/node.png");
+  background-size: cover;
+  height: 200px;
+  width: 330px;
+  margin: 0 auto;
+}
+
+#search {
+  outline: none;
+  border: 0;
+  color: #fff;
+  background-color: violet;
+  font-size: 1rem;
+  min-height: 40px;
+  width: 100%;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  line-height: 0.3rem;
+  padding: 1rem;
+  transition: 0.5s;
+  position: relative;
+}
+span {
+  color: white;
+  transition: 0.5s;
+}
+
+span:after {
+  content: "\00bb";
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#search:hover span {
+  padding-right: 25px;
+}
+
+#search:hover {
+  background-color: #7f0691;
+}
+
+#search:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#inputArea {
+  width: 1080px;
+  margin: 0 auto;
+  padding: 16px;
+  margin-bottom: 1rem;
+  outline: none;
+  border: 0;
+  color: #495057;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 0.3rem;
+  border-radius: 1rem;
+  border: 1px solid #ced4da;
+}
+
+#inputArea:focus {
+  border: 1px solid violet; /* Рамка при получении фокуса */
+}
+
+/* #buttonArea {
+  display: flex;
+  justify-content: flex-end;
+} */
+
+#footer {
+  display: grid;
+  grid-template-columns: auto auto;
+  flex-direction: row;
+}
