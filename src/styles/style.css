@@ -93,12 +93,36 @@ span:after {
 }
 
 .swiper-container {
-  height: 500px;
+  margin-top: 12px;
+  padding-top: 50px;
+  height: 600px;
+}
+
+.swiper-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 .swiper-slide {
   background: #ccc;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 60px;
+  flex-shrink: 0;
+}
+
+.moviePoster {
+  width: 80%;
+  text-align: center;
+}
+.movieTitle {
+  font-size: 20px;
+  height: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.movieYear {
+  font-size: 20px;
 }
