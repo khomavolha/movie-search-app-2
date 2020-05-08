@@ -62,13 +62,16 @@ span:after {
   right: 0;
 }
 
+.inputCross {
+  width: 100%;
+  display: flex;
+}
 #inputArea {
   width: 1080px;
   margin: 0 auto;
   padding: 16px;
   margin-bottom: 1rem;
   outline: none;
-  border: 0;
   color: #495057;
   font-size: 1rem;
   font-weight: 400;
@@ -81,6 +84,23 @@ span:after {
   border: 1px solid violet; /* Рамка при получении фокуса */
 }
 
+.cross {
+  position: absolute;
+  margin-left: 1040px;
+  margin-top: 18px;
+  font-size: 15px;
+  color: violet;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+
+.cross:hover {
+  position: absolute;
+  margin-left: 1030px;
+  margin-top: 11px;
+  font-size: 30px;
+  color: #7f0691;
+}
 /* #buttonArea {
   display: flex;
   justify-content: flex-end;

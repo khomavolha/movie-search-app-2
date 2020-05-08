@@ -16,6 +16,7 @@ export default class App {
 
 const button = document.querySelector('#search');
 const textField = document.querySelector('#inputArea');
+const cross = document.querySelector('.cross');
 button.onclick = (event) => {
   event.preventDefault();
   const val = textField.value;
@@ -24,5 +25,9 @@ button.onclick = (event) => {
     const app = new App(url);
     app.start();
   }
+};
+
+cross.onclick = (e) => {
+  e.preventDefault();
   textField.value = '';
 };
