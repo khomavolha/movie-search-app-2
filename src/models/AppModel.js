@@ -19,7 +19,7 @@ export default class AppModel {
   }
 
   async getMovieInfo() {
-    const { url } = this.state;
+    const url = this.state;
 
     const responce = await fetch(url);
     const data = await responce.json();
