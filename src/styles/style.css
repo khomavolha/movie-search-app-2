@@ -118,7 +118,7 @@ span:after {
 }
 
 #inputArea:focus {
-  border: 1px solid gray; /* Рамка при получении фокуса */
+  border: 1px solid gray;
 }
 
 .cross {
@@ -257,4 +257,11 @@ a #copy {
 img {
   max-height: 400px;
   max-width: 300px;
+}
+
+.resultInput {
+  font-size: 20px;
+  height: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }

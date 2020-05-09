@@ -5,6 +5,7 @@ import App from '../controllers/App';
 export default class AppModel {
   constructor(state) {
     this.state = state;
+    this.setState = null;
     //this.pageToken = '';
   }
 
@@ -17,7 +18,6 @@ export default class AppModel {
   }
 
   static extractMovieYear(data) {
-    console.log(data.Search.map((clip) => clip.Year));
     return data.Search.map((clip) => clip.Year);
   }
 
@@ -27,33 +27,36 @@ export default class AppModel {
 
   async getMovieInfo() {
     const url = this.state;
-    const responce = await fetch(url);
-    const data = await responce.json();
-
-    const arrRating = data.Search.map((rating) => rating.imdbID);
-    const urlRating = arrRating.map(
-      (rating) => `https://www.omdbapi.com/?i=${rating}&apikey=b11882b0`
-    );
     let ratingNumbers = [];
-    const rating = urlRating.map(async (n) => {
-      const rat = await fetch(n).then((jsonRating) =>
-        jsonRating.json().catch((err) => console.log(err))
-      );
-      ratingNumbers.push(rat);
-    });
-    await Promise.all(rating);
-    console.log(ratingNumbers);
 
-    try {
-      JSON.parse(responce);
-    } catch {
-      console.log('error');
+    const data = await await fetch(url)
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => {
+        console.log('Error: ', err);
+      });
+
+    // const responce = await fetch(url);
+    // const data = await responce.json();
+    if (data.Response === 'True') {
+      const arrRating = data.Search.map((rating) => rating.imdbID);
+      const urlRating = arrRating.map(
+        (rating) => `https://www.omdbapi.com/?i=${rating}&apikey=b11882b0`
+      );
+
+      const rating = urlRating.map(async (n) => {
+        const rat = await fetch(n).then((jsonRating) => jsonRating.json());
+        ratingNumbers.push(rat);
+      });
+      await Promise.all(rating).catch('smthwwr');
+
+      return {
+        movieTitle: AppModel.extractMovieTitle(data),
+        moviePoster: AppModel.extractMoviePoster(data),
+        movieYear: AppModel.extractMovieYear(data),
+        movieInfo: AppModel.extractMovieRating(ratingNumbers),
+      };
     }
-    return {
-      movieTitle: AppModel.extractMovieTitle(data),
-      moviePoster: AppModel.extractMoviePoster(data),
-      movieYear: AppModel.extractMovieYear(data),
-      movieInfo: AppModel.extractMovieRating(ratingNumbers),
-    };
   }
 }

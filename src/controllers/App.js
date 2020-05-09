@@ -24,7 +24,7 @@ const cross = document.querySelector('.cross');
 const resultInput = document.querySelector('.resultInput');
 async function translate(value) {
   const translator = await fetch(
-    `https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200509T175233Z.754eaad9df40dcb8.9a71504906a9c4cdc3d711f5687923540005d3ef&text=${value}&lang=ru-en`,
+    `https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200509T175233Z.754eaad9df40dcb8.9a71504906a9c4cdc3d711f5687923540005d3ef&text=${value}&lang=ru-en`
   );
   const res = await translator.json();
   const resText = res.text;
@@ -40,8 +40,13 @@ button.onclick = async (event) => {
     const app = new App(url);
     app.start();
   }
-
-  resultInput.innerHTML = `Results for "${unit}"`;
+  if (unit === undefined) {
+    console.log(unit);
+    resultInput.innerHTML = "What do you mean? I don't understand!";
+  } else {
+    console.log(unit);
+    resultInput.innerHTML = `Results for "${unit}"`;
+  }
 };
 
 cross.onclick = (e) => {
