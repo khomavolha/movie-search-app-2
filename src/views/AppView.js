@@ -4,7 +4,6 @@ import '../../node_modules/swiper/css/swiper.css';
 export default class AppView {
   constructor(title) {
     this.title = title;
-    console.log(title);
   }
 
   async render() {
@@ -15,6 +14,12 @@ export default class AppView {
       (title) => `<div class='movieTitle'>${title}</div>`
     );
 
+    this.title.moviePoster.forEach((item, i) => {
+      if (item == 'N/A') {
+        this.title.moviePoster[i] = '../src/assets/no_poster.png';
+      }
+    });
+
     const moviePoster = this.title.moviePoster.map(
       (poster) => `<div class='moviePoster'><img src='${poster}'></div>`
     );
@@ -23,11 +28,14 @@ export default class AppView {
       (year) => `<div class='movieYear'>${year}</div>`
     );
 
-    //сложить все массивы
+    const movieRating = this.title.movieInfo.map(
+      (rating) =>
+        `<div class='movieRating'><span id='starsRating'>&#9733;</span>${rating}</div>`
+    );
+
     const filmsArray = movieTitle.map((value, index) => {
-      return value + moviePoster[index] + movieYear[index];
+      return value + moviePoster[index] + movieYear[index] + movieRating[index];
     });
-    //console.log(filmsArray);
 
     swiperWrapper.innerHTML = filmsArray
       .map((content) => `<div class="swiper-slide">${content}</div>`)

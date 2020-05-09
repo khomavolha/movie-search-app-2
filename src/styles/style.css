@@ -7,7 +7,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: violet;
+  background: black;
   z-index: 2;
   opacity: 1;
   visibility: visible;
@@ -19,7 +19,7 @@
   height: 75px;
   border: 10px solid white;
   border-radius: 50%;
-  border-top-color: violet;
+  border-top-color: black;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -44,7 +44,6 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  width: 1080px;
   margin: 0 auto;
   font-size: 1rem;
   display: flex;
@@ -52,11 +51,8 @@ body {
   min-height: 100%;
 }
 
-.logo {
-  background-image: url("../assets/node.png");
-  background-size: cover;
-  height: 200px;
-  width: 330px;
+.container {
+  width: 1080px;
   margin: 0 auto;
 }
 
@@ -64,7 +60,7 @@ body {
   outline: none;
   border: 0;
   color: #fff;
-  background-color: violet;
+  background-color: black;
   font-size: 1rem;
   min-height: 40px;
   width: 100%;
@@ -95,7 +91,7 @@ span:after {
 }
 
 #search:hover {
-  background-color: #7f0691;
+  background-color: gray;
 }
 
 #search:hover span:after {
@@ -122,7 +118,7 @@ span:after {
 }
 
 #inputArea:focus {
-  border: 1px solid violet; /* Рамка при получении фокуса */
+  border: 1px solid gray; /* Рамка при получении фокуса */
 }
 
 .cross {
@@ -130,7 +126,7 @@ span:after {
   margin-left: 1040px;
   margin-top: 18px;
   font-size: 15px;
-  color: violet;
+  color: black;
   cursor: pointer;
   transition: 0.3s ease-out;
 }
@@ -140,17 +136,70 @@ span:after {
   margin-left: 1030px;
   margin-top: 11px;
   font-size: 30px;
-  color: #7f0691;
+  color: gray;
 }
 /* #buttonArea {
   display: flex;
   justify-content: flex-end;
 } */
 
+header {
+  font-family: "WRESTLEMANIA", sans-serif;
+  width: 100%;
+  height: 120px;
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+.title {
+  margin: 0;
+  font-size: 10em;
+}
+
 #footer {
+  font-family: "WRESTLEMANIA", sans-serif;
+  color: white;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
   display: grid;
   grid-template-columns: auto auto;
   flex-direction: row;
+  width: 100%;
+  height: 120px;
+  background-color: black;
+  margin-top: 12px;
+}
+
+.rs-school {
+  font-size: 40px;
+  margin-left: 30%;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: gray;
+}
+
+a #copy {
+  font-size: 23px;
+  padding: 0;
+  margin-right: -12px;
+}
+
+.git {
+  right: 50%;
+  font-size: 40px;
+  text-align: right;
+  margin-right: 40%;
+  color: white;
+  text-decoration: none;
 }
 
 .swiper-container {
@@ -173,6 +222,15 @@ span:after {
   font-size: 60px;
   flex-shrink: 0;
 }
+.swiper-button-prev::after {
+  color: black;
+  margin-right: 15px;
+}
+
+.swiper-button-next::after {
+  color: black;
+  margin-left: 15px;
+}
 
 .moviePoster {
   width: 80%;
@@ -186,4 +244,17 @@ span:after {
 }
 .movieYear {
   font-size: 20px;
+}
+
+.movieRating {
+  font-size: 14px;
+}
+
+#starsRating {
+  color: black;
+}
+
+img {
+  max-height: 400px;
+  max-width: 300px;
 }
