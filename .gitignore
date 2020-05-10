@@ -3,3 +3,4 @@ dist
 assets
 package-lock.json
 clicked.js
+.vscode
