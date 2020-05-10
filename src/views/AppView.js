@@ -12,15 +12,22 @@ export default class AppView {
     const swiperWrapper = document.querySelector('.swiper-wrapper');
     if (this.title !== undefined) {
       // console.log(this.title === undefined);
-      const movieTitle = this.title.movieTitle.map(
-        (title) => `<div class='movieTitle'>${title}</div>`
-      );
 
       this.title.moviePoster.forEach((item, i) => {
         if (item === 'N/A') {
           this.title.moviePoster[i] = '../src/assets/no_poster.png';
         }
       });
+
+      const movieTitle = this.title.movieTitle.map(
+        (title) => `<div class='movieTitle'>${title}</div>`
+      );
+
+      const movieLink = this.title.movieLink.map(
+        (link, index) =>
+          `<a href='https://www.imdb.com/title/${link}/videogallery/'>${movieTitle[index]}</a>`
+      );
+      console.log(movieLink);
 
       const moviePoster = this.title.moviePoster.map(
         (poster) => `<div class='moviePoster'><img src='${poster}'></div>`
@@ -35,11 +42,12 @@ export default class AppView {
           `<div class='movieRating'><span id='starsRating'>&#9733;</span>${rating}</div>`
       );
 
-      const filmsArray = movieTitle.map((value, index) => {
+      const filmsArray = movieLink.map((value, index) => {
         return (
           value + moviePoster[index] + movieYear[index] + movieRating[index]
         );
       });
+      console.log(filmsArray);
 
       swiperWrapper.innerHTML = filmsArray
         .map((content) => `<div class="swiper-slide">${content}</div>`)

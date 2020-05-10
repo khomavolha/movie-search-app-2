@@ -25,6 +25,10 @@ export default class AppModel {
     return ratingNumbers.map((rating) => rating.imdbRating);
   }
 
+  static exractMovieGalleryLink(data) {
+    return data.Search.map((link) => link.imdbID);
+  }
+
   async getMovieInfo() {
     const url = this.state;
     let ratingNumbers = [];
@@ -56,6 +60,7 @@ export default class AppModel {
         moviePoster: AppModel.extractMoviePoster(data),
         movieYear: AppModel.extractMovieYear(data),
         movieInfo: AppModel.extractMovieRating(ratingNumbers),
+        movieLink: AppModel.exractMovieGalleryLink(data),
       };
     }
   }
