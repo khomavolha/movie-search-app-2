@@ -9,9 +9,7 @@ export default class App {
 
   async start() {
     const model = new AppModel(this.state);
-
     const data = await model.getMovieInfo();
-
     const view = new AppView(data);
 
     view.render();
@@ -41,10 +39,8 @@ button.onclick = async (event) => {
     app.start();
   }
   if (unit === undefined) {
-    console.log(unit);
     resultInput.innerHTML = "What do you mean? I don't understand!";
   } else {
-    console.log(unit);
     resultInput.innerHTML = `Results for "${unit}"`;
   }
 };

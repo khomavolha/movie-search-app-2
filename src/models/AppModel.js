@@ -1,5 +1,6 @@
+/* eslint-disable consistent-return */
 /* eslint-disable spaced-comment */
-
+// eslint-disable-next-line import/no-cycle
 import App from '../controllers/App';
 
 export default class AppModel {
@@ -31,8 +32,8 @@ export default class AppModel {
 
   async getMovieInfo() {
     const url = this.state;
+    // eslint-disable-next-line prefer-const
     let ratingNumbers = [];
-
     const data = await await fetch(url)
       .then((res) => {
         return res.json();
